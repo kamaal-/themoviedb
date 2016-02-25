@@ -1,19 +1,19 @@
 <section class="main--content__slider">
   <h2 class="main--content__slider__heading">{{movies.pageTitle}}</h2>
-  
+
   <!-- actual slider -->
   <div class="slider__wrapper">
-    
+
     <!-- previus slider -->
     <button class="slider--nav slider--nav__prev" ng-disabled="movies.selectedSlide == 0" ng-click="main.prev()">previos</button>
-    
+
     <!-- viewport slider -->
     <div class="slider__viewport">
 
       <!-- single__slide -->
       {{movies.selectedSlide}}
-      <div 
-        ng-repeat="set in movies.sets" class="slider--single__slide" 
+      <div
+        ng-repeat="set in movies.sets" class="slider--single__slide"
         ng-class="$index == movies.selectedSlide ? 'selected' : (movies.selectedSlide < $index ? 'next--slider' :  'old--slider')">
         <!-- single movie data // // -->
         <article ng-repeat="movie in set" ng-mouseover="movies.focusedMovie = $index" class="the--movie__postcard the--movie" ng-class="{'the--movie__selected': $index == movies.focusedMovie}">
@@ -23,7 +23,9 @@
         <div class="the--movie__text">
           <header class="the--movie--title">
             <h3 class="the--movie--name">{{movie.original_title}}</h3>
-            <p class="the--movie--genre">Action, Adventure {{$index}}</p>
+            <p class="the--movie--genre">
+              <span ng-repeat="genre in movie.genre_ids">{{(movies.genres|kmlFindId:genre).name}}{{$last ? '' : ', '}}</span>
+            </p>
           </header>
           <footer class="the--movie--meta">
             <span class="the--movie--rating">{{movie.vote_average|kmlDecFilter:1}}<i class="icon-star"></i></span>
@@ -37,11 +39,11 @@
           </div>
         </div>
       </article><!-- END movie data -->
-      
+
       </div><!-- END single__slide -->
 
     </div><!-- END viewport slider -->
-    
+
     <!-- next slider -->
     <button class="slider--nav slider--nav__next" ng-disabled="movies.selectedSlide == (movies.sets.length-1)" ng-click="main.next()">next</button>
 
