@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="themoviedbApp" key-trap>
+    <div class="main--content__wrapper" ng-controller="AppCtrl as main">
+      <header class="main--content__navigation">
+        <nav class="navigation">
+          <ul>
+            <li ng-repeat="navigation in nav.list"><a class="link navigation--link" ng-class="{'navigation--link__selected': $index == nav.focused}" href="#/{{navigation.link}}">{{navigation.name}}</a></li>
+            
+          </ul>
+        </nav>
+      </header>
+      <!-- CONTENTS -->
+      <div ng-view="">
+      
+      </div>
+    </div>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/popular.js"></script>
+        <script src="scripts/controllers/top_rated.js"></script>
+        <script src="scripts/controllers/upcoming.js"></script>
+        <script src="scripts/controllers/now_playing.js"></script>
+        <script src="scripts/directives/keytrap.js"></script>
+        <script src="scripts/filters/kmldecfilter.js"></script>
+        <script src="scripts/filters/kmldectrimfilter.js"></script>
+        <script src="scripts/directives/errsrc.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

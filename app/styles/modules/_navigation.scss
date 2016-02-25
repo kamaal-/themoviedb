@@ -1,0 +1,21 @@
+.navigation{
+	@extend .cf;
+	margin: 5px 0px;
+	ul,li{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	li{
+		@extend .fl-l;
+		margin: 10px;
+	}
+	li:first-child{
+		margin-left: 0;
+	}
+	&--link{
+		font-size: 1rem;
+		padding: 8px 10px;
+		font-weight: 600;
+	}
+}

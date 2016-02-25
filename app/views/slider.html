@@ -1,0 +1,50 @@
+<section class="main--content__slider">
+  <h2 class="main--content__slider__heading">{{movies.pageTitle}}</h2>
+  
+  <!-- actual slider -->
+  <div class="slider__wrapper">
+    
+    <!-- previus slider -->
+    <button class="slider--nav slider--nav__prev" ng-disabled="movies.selectedSlide == 0" ng-click="main.prev()">previos</button>
+    
+    <!-- viewport slider -->
+    <div class="slider__viewport">
+
+      <!-- single__slide -->
+      {{movies.selectedSlide}}
+      <div 
+        ng-repeat="set in movies.sets" class="slider--single__slide" 
+        ng-class="$index == movies.selectedSlide ? 'selected' : (movies.selectedSlide < $index ? 'next--slider' :  'old--slider')">
+        <!-- single movie data // // -->
+        <article ng-repeat="movie in set" ng-mouseover="movies.focusedMovie = $index" class="the--movie__postcard the--movie" ng-class="{'the--movie__selected': $index == movies.focusedMovie}">
+          <div class="the--movie__poster" >
+            <a class="the--movie--image" href=""><img ng-src="https://image.tmdb.org/t/p/w370/{{movie.poster_path}}" err-src="https://assets.tmdb.org/assets/d26cc86b42bf5e23f4a2657fbb8e2600/images/no-poster-w370-v2.png" alt="{{movie.original_title}}" class="thumbnail"></a>
+          </div>
+        <div class="the--movie__text">
+          <header class="the--movie--title">
+            <h3 class="the--movie--name">{{movie.original_title}}</h3>
+            <p class="the--movie--genre">Action, Adventure {{$index}}</p>
+          </header>
+          <footer class="the--movie--meta">
+            <span class="the--movie--rating">{{movie.vote_average|kmlDecFilter:1}}<i class="icon-star"></i></span>
+            <time class="the--movie--reliesedate" pubdate datetime="{{movie.release_date}}">{{movie.release_date.substring(0,4)}}<i class="icon-calendar"></i></time>
+          </footer>
+          <aside class="the--movie--overview">
+            <p>{{movie.overview|kmlDecTrimFilter:170 }}</p>
+          </aside>
+          <div class="the--movie--link">
+            <a class="link" href="javascript:void(0)">More Info</a>
+          </div>
+        </div>
+      </article><!-- END movie data -->
+      
+      </div><!-- END single__slide -->
+
+    </div><!-- END viewport slider -->
+    
+    <!-- next slider -->
+    <button class="slider--nav slider--nav__next" ng-disabled="movies.selectedSlide == (movies.sets.length-1)" ng-click="main.next()">next</button>
+
+  </div>
+
+</section>

@@ -1,0 +1,72 @@
+.the--movie{
+	box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+	margin-bottom: 32px;
+	max-height: 283px;
+	transition:all 0.3s linear;
+	
+	// movie poster
+	&__postcard{
+		@include span-columns(6);
+		@include omega(2n);
+	}
+	&__poster{
+		@include span-columns(5);
+	}
+	&--image{
+		display: inline-block;
+		@include fill-parent;
+	}
+
+	
+	// movie text
+	&__text{
+		padding: 20px 20px 20px 0px;
+		@include span-columns(7);
+		@include omega(2);
+	}
+	&--title{
+		@include span-columns(8);
+	}
+
+	&--name{
+		margin: 0;
+		padding: 0;
+		font-size: 1rem;
+	}
+	&--genre{
+		font-size: 0.80rem;
+		margin: 0;
+		padding: 0;
+		color: lighten($font-color, 30);
+	}
+	&--overview{
+		margin-top: 30px;
+		min-height: 140px;
+		border-bottom: 1px solid #eeeeee;
+		clear: both;
+		p{
+			font-size: 0.8rem;
+			text-indent: 0;
+		}
+
+	}
+	&--meta{
+		text-align: right;
+		font-size: 0.8rem;
+		i{
+			margin-left: 5px;
+		}
+	}
+	&--rating{
+		display: block;
+		@include fill-parent;
+	}
+
+	// read more
+	&--link{
+		a{
+			margin-top: 20px;
+		}
+	}
+
+}

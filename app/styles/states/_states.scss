@@ -1,0 +1,41 @@
+.the--movie{
+
+	&:hover,
+	&:focus,
+	&__selected{
+		background: lighten(#FFDC00, 20);
+		box-shadow: 0 8px 15px rgba(0,0,0,0.4);
+		
+		.the--movie--overview{
+			border-bottom: 1px solid darken(#ffea66, 23);
+		}
+
+	}
+}
+
+.navigation--link{
+	&:hover,
+	&:focus,
+	&__selected{
+		border-bottom: 5px solid darken(#ffea66, 25);
+		background: lighten(#FFDC00, 20);
+	}
+}
+
+.slider{
+	&--nav{
+		
+		&:focus, &:active, &:hover, &__selected{
+			outline: none;
+			background: lighten(#FFDC00, 20);
+			box-shadow: 0 8px 15px rgba(0,0,0,0.4);
+		}
+		&:disabled{
+			opacity: 0.2;
+			&:focus, &:active, &:hover {
+				background: #fff;
+				box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+			}
+		}
+	}
+}

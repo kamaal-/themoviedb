@@ -1,0 +1,16 @@
+.page__contents{
+	@include fill-parent;
+	height: 100%;
+}
+.main--content__wrapper{
+	@include outer-container(980px);
+	@include fill-parent;
+	height: 100%;
+}
+.slider__wrapper, .slider--single__slide, .data{
+	@include outer-container;
+}
+// temp 
+pre{
+	height: 600px;
+}

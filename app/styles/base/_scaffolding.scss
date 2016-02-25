@@ -1,0 +1,48 @@
+//resetting
+:root{
+	height: 100%; 
+	box-sizing: border-box; 
+	color: $font-color;
+}
+body{ 
+	margin: 0;
+	height: 100%;
+	background: $body-bg;
+}
+.thumbnail{
+	width: 100%;
+	height: auto;
+}
+
+// Clearfix
+.cf{
+	*zoom: 1;
+	&::before, &::after {
+	    content: " "; /* 1 */
+	    display: table; /* 2 */
+	}
+	&::after {
+    	clear: both;
+	}
+}
+
+// float left
+.fl-l{
+	float: left;
+}
+// float right
+.fl-r{
+	float:right;
+}
+
+p{
+	max-width: 25rem;
+}
+
+.link{
+	font-size: 0.9rem;
+	color: $font-color;
+	text-decoration: none;
+	margin-top: 20px;
+	display: inline-block;
+}
