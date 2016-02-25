@@ -58,6 +58,27 @@ angular
       'selectedSlide': 0,
       'focusedMovie': 0,
     };
+    $scope.movies.genres = [
+          {"id": 28,"name": "Action"},
+				  {"id": 12,"name": "Adventure"},
+				  {"id": 16,"name": "Animation"},
+				  {"id": 35,"name": "Comedy"},
+				  {"id": 80,"name": "Crime"},
+				  {"id": 99,"name": "Documentary"},
+				  {"id": 18,"name": "Drama"},
+				  {"id": 10751,"name": "Family"},
+				  {"id": 14,"name": "Fantasy"},
+				  {"id": 10769,"name": "Foreign"},
+				  {"id": 36,"name": "History"},
+				  {"id": 27,"name": "Horror"},
+				  {"id": 10402,"name": "Music"},
+				  {"id": 9648,"name": "Mystery"},
+				  {"id": 10749,"name": "Romance"},
+				  {"id": 878,"name": "Science Fiction"},
+				  {"id": 10770,"name": "TV Movie"},
+				  {"id": 53,"name": "Thriller"},
+				  {"id": 10752,"name": "War"},
+				  {"id": 37,"name": "Western"}];
     $scope.console = $window.console;
     $scope.keys = [];
     $scope.selectedSlide = 0;
@@ -147,7 +168,7 @@ angular
       }
     }});
 
-    // down arrow 
+    // down arrow
     $scope.keys.push({ code: 40, action: function() {
       if($scope.navMode && ($scope.movies.focusedMovie === -1)){
         $scope.movies.focusedMovie = 0;
@@ -155,7 +176,7 @@ angular
       }else{
         if( ($scope.movies.sets[$scope.movies.selectedSlide].length - 1) > $scope.movies.focusedMovie ){
           if ($scope.movies.focusedMovie === 4) {
-            $scope.movies.focusedMovie = 1; 
+            $scope.movies.focusedMovie = 1;
           }else if($scope.movies.sets[$scope.movies.selectedSlide].length > 2){
             $scope.movies.focusedMovie += 2;
           }else {
